@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from '../../context';
+import { faCaretDown, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Contact extends Component {
   state = {
@@ -23,20 +25,20 @@ class Contact extends Component {
             <div className="card card-body mb-3">
               <h4>
                 {name}{' '}
-                <i
+                <FontAwesomeIcon
+                  icon={faCaretDown}
                   onClick={() =>
                     this.setState({
                       showContactInfo: !this.state.showContactInfo
                     })
                   }
-                  className="fas fa-arrow-down"
                   style={{ cursor: 'pointer' }}
-                ></i>
-                <i
+                />
+                <FontAwesomeIcon
                   onClick={this.onDeleteClick.bind(this, id, dispatch)}
-                  className="fas fa-times"
+                  icon={faTimes}
                   style={{ cursor: 'pointer', float: 'right', color: 'red' }}
-                ></i>
+                />
               </h4>
               {showContactInfo ? (
                 <ul className="list-group">
